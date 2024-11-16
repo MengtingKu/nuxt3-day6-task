@@ -1,34 +1,27 @@
-# Day 2 - Nuxt3 專案引入 CSS 樣式 題目
+# Day 6 - NuxtLink 與 路由基礎配置
+
+## 今日學習目標
+- 學習使用 NuxtLink 實作頁面導航
+- 學習 Nuxt3 路由系統的基礎配置
 
 
-請 clone 這一份模板，在 Nuxt3 引入 Bootstrap5  v5.3.3 並達成以下條件 :
-- 設置  assets/stylesheets   資料夾，在內層新增 all.scss 檔案並引入以下 [bootstrap5 的 SCSS](https://getbootstrap.com/docs/5.3/customize/sass/#importing)
+-建立前台首頁 ( index.vue ) 以及房型頁面 (room.vue) 。前台首頁對應的路由路徑為 / ，房型頁面的路由路徑為/room。
+-頁面上只需呈現純文字。前台首頁顯示 “首頁頁面” ，房型頁面 顯示“房型頁面”
+```
+<!-- 前台首頁 -->
+<template>
+ <h1>首頁頁面</h1>
+</template>
 
-```scss
-// assets/stylesheets/all.scss
-
-@import "bootstrap/scss/functions";
-
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/variables-dark";
-
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/root";
-
-@import "bootstrap/scss/utilities";
-@import "bootstrap/scss/reboot";
-@import "bootstrap/scss/containers";
-
-@import "bootstrap/scss/buttons";
-
-@import "bootstrap/scss/utilities/api";
-
+<!-- /room 房型頁面 -->
+<template>
+  <h1>房型頁面</h1>
+</template>
 ```
 
-- 在 Nuxt.config.ts 將  all.scss 加入全域共用樣式
-- 新增 page/index 頁面，並使用 Bootstrap5  [按鈕元件](https://getbootstrap.com/docs/5.3/components/buttons/#variants)
-- 在 Nuxt.config.ts 設定全域共用 bootstrap5  的 SCSS 變數 ，並且可以直接使用在 .vue 檔案內的 `<style></style>`
+- 將 app.vue 預設的 <NuxtWelcome /> 歡迎改成可以顯示頁面的內容 。
+- 在 layouts/default.vue 的 Layout 中已有載入 Bootstrap5 SCSS 及 Navbar 元件。需在 layouts/default.vue 的 Navbar 加入 <NuxtLink> 元件，實現切換頁面的功能。
+- 修改路由預設的 linkActiveClass 和 linkExactActiveClass ，使 <NuxtLink> 匹配到路由的時候可以套用 Bootstrap5 的 .active class 。
 
 
 ## 安裝
@@ -40,13 +33,13 @@ Node.js 版本建議為：`18.0.0` 以上
 ### 取得專案
 
 ```bash
-git clone -b day2-style  https://github.com/jasonlu0525/nuxt3-live-question.git day2-style-question
+git clone https://github.com/jasonlu0525/nuxt3-live-question/tree/day6-router day6-nuxt-router-task
 ```
 
 ### 移動到專案內
 
 ```bash
-cd  day2-style-question 
+cd  day6-nuxt-router-task
 ```
 
 ### 安裝套件
